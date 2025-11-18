@@ -1,0 +1,10 @@
+# Deploy Cert Manager - https://cert-manager.io/docs
+defaultNamespace: cert-manager
+
+helm:
+  repo: https://charts.jetstack.io
+  chart: cert-manager
+  version: v1.19.1
+  releaseName: cert-manager
+  valuesFiles:
+    - values.yaml
