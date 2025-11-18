@@ -1,7 +1,7 @@
 namespace: cnpg-system
 helm:
   repo: https://cloudnative-pg.io/charts/
-  chart: cloudnative-pg/cloudnative-pg
+  chart: cloudnative-pg
   version: 0.26.1
   valuesFiles:
     - ./cnpg/values.yaml
