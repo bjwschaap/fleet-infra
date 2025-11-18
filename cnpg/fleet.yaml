@@ -1,5 +1,5 @@
 # Deploy CNPG - Cloud Native Postgres Cluster Operator
-defaultNamespace: cpng-system
+defaultNamespace: cnpg-system
 
 helm:
   repo: https://cloudnative-pg.io/charts/
