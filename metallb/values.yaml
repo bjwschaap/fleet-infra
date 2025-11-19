@@ -9,6 +9,8 @@ controller:
   serviceAccount:
     create: true
   securityContext:
+    seccompProfile:
+      type: RuntimeDefault
     runAsNonRoot: true
     runAsUser: 65534
     fsGroup: 65534
