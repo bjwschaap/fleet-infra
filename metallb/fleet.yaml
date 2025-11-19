@@ -1,4 +1,4 @@
-# Deploy Metallb Controller
+# Deploy Metallb Controller - https://metallb.io/
 defaultNamespace: metallb
 
 helm:
