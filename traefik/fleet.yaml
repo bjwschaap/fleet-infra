@@ -1,7 +1,5 @@
 # Deploy Traefik Ingress - https://traefik.io/traefik
 defaultNamespace: traefik
-dependsOn:
-  - name: infra-metallb
 
 helm:
   repo: https://traefik.github.io/charts
