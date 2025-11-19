@@ -2,7 +2,6 @@ loadBalancerClass: "traefik"
 
 controller:
   enabled: true
-  # -- Controller log level. Must be one of: `all`, `debug`, `info`, `warn`, `error` or `none`
   logLevel: info
   strategy:
     type: RollingUpdate
