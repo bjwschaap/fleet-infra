@@ -20,6 +20,12 @@ controller:
 speaker:
   enabled: true
   logLevel: info
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+    runAsNonRoot: true
+    runAsUser: 65534
+    fsGroup: 65534
   tolerateMaster: true
   memberlist:
     enabled: true
@@ -30,10 +36,6 @@ speaker:
     enabled: true
   # ignore the exclude-from-external-loadbalancer label
   ignoreExcludeLB: false
-  image:
-    repository: quay.io/metallb/speaker
-    tag:
-    pullPolicy:
   updateStrategy:
     type: RollingUpdate
   serviceAccount:
