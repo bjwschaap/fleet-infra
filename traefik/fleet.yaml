@@ -1,0 +1,12 @@
+# Deploy Traefik Ingress - https://traefik.io/traefik
+defaultNamespace: traefik
+dependsOn:
+  - name: infra-metallb
+
+helm:
+  repo: https://traefik.github.io/charts
+  chart: traefik
+  version: 37.3.0
+  releaseName: traefik
+  valuesFiles:
+    - values.yaml

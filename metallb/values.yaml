@@ -1,0 +1,47 @@
+loadBalancerClass: "traefik"
+
+controller:
+  enabled: true
+  # -- Controller log level. Must be one of: `all`, `debug`, `info`, `warn`, `error` or `none`
+  logLevel: info
+  strategy:
+    type: RollingUpdate
+  serviceAccount:
+    create: true
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 65534
+    fsGroup: 65534
+  tlsMinVersion: "VersionTLS12"
+
+# speaker contains configuration specific to the MetalLB speaker daemonset.
+speaker:
+  enabled: true
+  logLevel: info
+  tolerateMaster: true
+  memberlist:
+    enabled: true
+    mlBindPort: 7946
+    mlBindAddrOverride: ""
+    mlSecretKeyPath: "/etc/ml_secret_key"
+  excludeInterfaces:
+    enabled: true
+  # ignore the exclude-from-external-loadbalancer label
+  ignoreExcludeLB: false
+  image:
+    repository: quay.io/metallb/speaker
+    tag:
+    pullPolicy:
+  updateStrategy:
+    type: RollingUpdate
+  serviceAccount:
+    create: true
+  # frr contains configuration specific to the MetalLB FRR container,
+  # for speaker running alongside FRR.
+  frr:
+    enabled: true
+    metricsPort: 7473
+
+crds:
+  enabled: true
+  validationFailurePolicy: Fail

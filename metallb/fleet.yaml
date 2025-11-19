@@ -1,0 +1,10 @@
+# Deploy Metallb Controller
+defaultNamespace: metallb
+
+helm:
+  repo: https://metallb.github.io/metallb
+  chart: metallb
+  version: 0.15.2
+  releaseName: metallb
+  valuesFiles:
+    - values.yaml
